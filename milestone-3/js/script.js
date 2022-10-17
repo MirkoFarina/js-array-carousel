@@ -1,3 +1,4 @@
+/*                                  DATI                                */
 const arrayImg = [
   '01.jpg',
   '02.jpg',
@@ -9,16 +10,22 @@ const arrayImg = [
 // "CHIAMO" I MIEI CONTENITORI DELLE IMG
 const containerImgLg = document.querySelector('.img-lg');
 const containerImgXs = document.querySelector('.img-xs');
+
+// CREO LE COSTANTI CHE POI USERO' PER INTERAGIRE CON L'HTML
 let imgLg = "";
 let imgXs = "";
+
+// CREO IL CONTATORE PER LA GESTIONE DELLE CLASSI
 let counterImg = 0;
-// "SCOMPONGO" L'ARRAY
+
+
+// "SCOMPONGO" L'ARRAY USANDO IL CICLO FOR E STAMPO I TAG CHE MI SERVONO
 for(let i = 0; i < arrayImg.length; i++){
   //CREO IL TAG IMG PER IL BOX XL
   imgLg = `
   <img class="xl hide" src="img/${arrayImg[i]}" alt="${arrayImg[i]}">
   `;
-  //CREO IL TAG IMG PER IL BOX XS 
+  //CREO IL TAG IMG PER IL BOX XS (THUMBNAILS)
   imgXs = `
   <img class="xs" src="img/${arrayImg[i]}" alt="${arrayImg[i]}">
   `;
@@ -49,13 +56,13 @@ const down = document.querySelector('.btn.down');
 // IN "DISCESA"
 down.addEventListener('click', function (){
 
-  //LOOP PER LE IMMAGINI NEL CONTAINER XL E LE CLASSI NEL XS
+  //LOOP PER LE IMMAGINI NEL CONTAINER XL E LE CLASSI NEL XS(THUMBNAILS)
   if (counterImg === arrayImg.length - 1) {
     //XL
     arrayImgLg[counterImg].classList.remove('active');
     arrayImgLg[counterImg].classList.add('hide');
 
-    //XS
+    //XS (THUMBNAILS)
     arrayImgXs[counterImg].classList.remove('active');
 
     // RESET CONTATORE PER CREARE IL LOOP
@@ -65,14 +72,14 @@ down.addEventListener('click', function (){
     arrayImgLg[counterImg].classList.remove('hide');
     arrayImgLg[counterImg].classList.add('active');
 
-    //XS
+    //XS (THUMBNAILS)
     arrayImgXs[counterImg].classList.add('active');
   }else {
     //XL
     arrayImgLg[counterImg].classList.remove('active');
     arrayImgLg[counterImg].classList.add('hide');
 
-    //XS
+    //XS (THUMBNAILS)
     arrayImgXs[counterImg].classList.remove('active');
 
     // INCREMENTO CONTATORE PER CAMBIARE LA VISUALIZZAZIONE
@@ -82,24 +89,22 @@ down.addEventListener('click', function (){
     arrayImgLg[counterImg].classList.remove('hide');
     arrayImgLg[counterImg].classList.add('active');
 
-    //XS
+    //XS (THUMBNAILS)
     arrayImgXs[counterImg].classList.add('active');
   }
-
-
 })
 
 
 // IN "SALITA"
 up.addEventListener('click', function(){
 
-  //LOOP PER LE IMMAGINI NEL CONTAINER XL E LE CLASSI NEL XS
+  //LOOP PER LE IMMAGINI NEL CONTAINER XL E LE CLASSI NEL XS (THUMBNAILS)
   if(counterImg === 0){
     //XL
     arrayImgLg[counterImg].classList.remove('active');
     arrayImgLg[counterImg].classList.add('hide');
 
-    //XS
+    //XS (THUMBNAILS)
     arrayImgXs[counterImg].classList.remove('active');
 
     // PORTO IL CONTATORE ALL'ULTIMO ELEMENTO DELLA LISTA
@@ -109,14 +114,14 @@ up.addEventListener('click', function(){
     arrayImgLg[counterImg].classList.remove('hide');
     arrayImgLg[counterImg].classList.add('active');
 
-    //XS
+    //XS (THUMBNAILS)
     arrayImgXs[counterImg].classList.add('active');
   }else {
     //XL
     arrayImgLg[counterImg].classList.remove('active');
     arrayImgLg[counterImg].classList.add('hide');
 
-    //XS  
+    //XS  (THUMBNAILS)
     arrayImgXs[counterImg].classList.remove('active');
 
     //DECREMENTO IL CONTATORE PER POTER TORNARE ALL'IMG PRECEDENTE
@@ -126,24 +131,7 @@ up.addEventListener('click', function(){
     arrayImgLg[counterImg].classList.remove('hide');
     arrayImgLg[counterImg].classList.add('active');
 
-    //XS
+    //XS (THUMBNAILS)
     arrayImgXs[counterImg].classList.add('active');
   }
 })
-
-
-
-
-
-
-
-
-
-
-/* **MILESTONE 3**
-Al click dell’utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
-**BONUS 1:**
-Aggiungere il **ciclo infinito** del carosello. Ovvero se è attiva la prima immagine e l’utente clicca la freccia per andare all’immagine precedente, dovrà comparire l’ultima immagine dell’array e viceversa.
-**BONUS 2:**
-Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagine grande attiva, come nello screenshot proposto. Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all’immagine attiva, che invece avrà un bordo colorato.
-Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.*/

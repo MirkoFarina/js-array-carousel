@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==' crossorigin='anonymous'/>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Carosello Mono Array</title>
+</head>
+<body>
+  <!--- Per prima cosa, creiamo il markup statico: costruiamo il container e inseriamo un’immagine grande al centro: avremo così la struttura base e gli stili pronti per poterci poi concentrare solamente sull’aspetto logico.-->
+  <div class="container">
+    <div class="carousel">
+   
+      <div class="img-lg">
+        <img class="xl active" src="img/01.jpg" alt="">
+      </div>
+
+      <div class="img-xs">
+        <img class="active xs" src="img/01.jpg" alt="">
+        <img class="xs" src="img/02.jpg" alt="">
+        <img class="xs" src="img/03.jpg" alt="">
+        <img class="xs" src="img/04.jpg" alt="">
+        <img class="xs" src="img/05.jpg" alt="">
+        <div class="button-group">
+          <button class="btn up">
+            <i class="fa-solid fa-chevron-up"></i>
+          </button>
+          <button class="btn down">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -54,84 +54,118 @@ const down = document.querySelector('.btn.down');
 //CREO UN LOOP SUL BOTTONE CHE MI RIPORTA ALL'IMMAGINE DI PARTENZA
 
 // IN "DISCESA"
-down.addEventListener('click', function (){
+// down.addEventListener('click', function (){
 
-  //LOOP PER LE IMMAGINI NEL CONTAINER XL E LE CLASSI NEL XS(THUMBNAILS)
-  if (counterImg === arrayImg.length - 1) {
-    //XL
-    arrayImgLg[counterImg].classList.remove('active');
-    arrayImgLg[counterImg].classList.add('hide');
+//   //LOOP PER LE IMMAGINI NEL CONTAINER XL E LE CLASSI NEL XS(THUMBNAILS)
+//   if (counterImg === arrayImg.length - 1) {
+//     //XL
+//     arrayImgLg[counterImg].classList.remove('active');
+//     arrayImgLg[counterImg].classList.add('hide');
 
-    //XS (THUMBNAILS)
-    arrayImgXs[counterImg].classList.remove('active');
+//     //XS (THUMBNAILS)
+//     arrayImgXs[counterImg].classList.remove('active');
 
-    // RESET CONTATORE PER CREARE IL LOOP
-    counterImg = 0;
+//     // RESET CONTATORE PER CREARE IL LOOP
+//     counterImg = 0;
 
-    //XL
-    arrayImgLg[counterImg].classList.remove('hide');
-    arrayImgLg[counterImg].classList.add('active');
+//     //XL
+//     arrayImgLg[counterImg].classList.remove('hide');
+//     arrayImgLg[counterImg].classList.add('active');
 
-    //XS (THUMBNAILS)
-    arrayImgXs[counterImg].classList.add('active');
-  }else {
-    //XL
-    arrayImgLg[counterImg].classList.remove('active');
-    arrayImgLg[counterImg].classList.add('hide');
+//     //XS (THUMBNAILS)
+//     arrayImgXs[counterImg].classList.add('active');
+//   }else {
+//     //XL
+//     arrayImgLg[counterImg].classList.remove('active');
+//     arrayImgLg[counterImg].classList.add('hide');
 
-    //XS (THUMBNAILS)
-    arrayImgXs[counterImg].classList.remove('active');
+//     //XS (THUMBNAILS)
+//     arrayImgXs[counterImg].classList.remove('active');
 
-    // INCREMENTO CONTATORE PER CAMBIARE LA VISUALIZZAZIONE
-    ++counterImg;
+//     // INCREMENTO CONTATORE PER CAMBIARE LA VISUALIZZAZIONE
+//     ++counterImg;
 
-    //XL
-    arrayImgLg[counterImg].classList.remove('hide');
-    arrayImgLg[counterImg].classList.add('active');
+//     //XL
+//     arrayImgLg[counterImg].classList.remove('hide');
+//     arrayImgLg[counterImg].classList.add('active');
 
-    //XS (THUMBNAILS)
-    arrayImgXs[counterImg].classList.add('active');
-  }
-})
+//     //XS (THUMBNAILS)
+//     arrayImgXs[counterImg].classList.add('active');
+//   }
+// })
 
 
 // IN "SALITA"
+// up.addEventListener('click', function(){
+
+//   //LOOP PER LE IMMAGINI NEL CONTAINER XL E LE CLASSI NEL XS (THUMBNAILS)
+//   if(counterImg === 0){
+//     //XL
+//     arrayImgLg[counterImg].classList.remove('active');
+//     arrayImgLg[counterImg].classList.add('hide');
+
+//     //XS (THUMBNAILS)
+//     arrayImgXs[counterImg].classList.remove('active');
+
+//     // PORTO IL CONTATORE ALL'ULTIMO ELEMENTO DELLA LISTA
+//     counterImg = arrayImg.length -1;
+
+//     //XL
+//     arrayImgLg[counterImg].classList.remove('hide');
+//     arrayImgLg[counterImg].classList.add('active');
+
+//     //XS (THUMBNAILS)
+//     arrayImgXs[counterImg].classList.add('active');
+//   }else {
+//     //XL
+//     arrayImgLg[counterImg].classList.remove('active');
+//     arrayImgLg[counterImg].classList.add('hide');
+
+//     //XS  (THUMBNAILS)
+//     arrayImgXs[counterImg].classList.remove('active');
+
+//     //DECREMENTO IL CONTATORE PER POTER TORNARE ALL'IMG PRECEDENTE
+//     --counterImg;
+
+//     //XL
+//     arrayImgLg[counterImg].classList.remove('hide');
+//     arrayImgLg[counterImg].classList.add('active');
+
+//     //XS (THUMBNAILS)
+//     arrayImgXs[counterImg].classList.add('active');
+//   }
+// })
+
+// forma compatta 
+down.addEventListener('click', function(){
+  arrayImgLg[counterImg].classList.remove('active');
+  arrayImgLg[counterImg].classList.add('hide');
+
+  arrayImgXs[counterImg].classList.remove('active');
+
+  counterImg++;
+  if(counterImg === arrayImg.length) counterImg = 0;
+
+  arrayImgLg[counterImg].classList.remove('hide');
+  arrayImgLg[counterImg].classList.add('active');
+
+  arrayImgXs[counterImg].classList.add('active')
+
+})
+
+
 up.addEventListener('click', function(){
+  arrayImgLg[counterImg].classList.remove('active');
+  arrayImgLg[counterImg].classList.add('hide');
 
-  //LOOP PER LE IMMAGINI NEL CONTAINER XL E LE CLASSI NEL XS (THUMBNAILS)
-  if(counterImg === 0){
-    //XL
-    arrayImgLg[counterImg].classList.remove('active');
-    arrayImgLg[counterImg].classList.add('hide');
+  arrayImgXs[counterImg].classList.remove('active');
 
-    //XS (THUMBNAILS)
-    arrayImgXs[counterImg].classList.remove('active');
+  counterImg--;
+  if(counterImg < 0) counterImg = arrayImg.length -1;
 
-    // PORTO IL CONTATORE ALL'ULTIMO ELEMENTO DELLA LISTA
-    counterImg = arrayImg.length -1;
+  arrayImgLg[counterImg].classList.remove('hide');
+  arrayImgLg[counterImg].classList.add('active');
 
-    //XL
-    arrayImgLg[counterImg].classList.remove('hide');
-    arrayImgLg[counterImg].classList.add('active');
+  arrayImgXs[counterImg].classList.add('active')
 
-    //XS (THUMBNAILS)
-    arrayImgXs[counterImg].classList.add('active');
-  }else {
-    //XL
-    arrayImgLg[counterImg].classList.remove('active');
-    arrayImgLg[counterImg].classList.add('hide');
-
-    //XS  (THUMBNAILS)
-    arrayImgXs[counterImg].classList.remove('active');
-
-    //DECREMENTO IL CONTATORE PER POTER TORNARE ALL'IMG PRECEDENTE
-    --counterImg;
-
-    //XL
-    arrayImgLg[counterImg].classList.remove('hide');
-    arrayImgLg[counterImg].classList.add('active');
-
-    //XS (THUMBNAILS)
-    arrayImgXs[counterImg].classList.add('active');
-  }
 })
